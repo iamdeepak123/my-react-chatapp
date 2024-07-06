@@ -1,26 +1,33 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-
+import { BrowserRouter, Route, Routes } from "react-router-dom"
+import Navbar from "./Components/Navbar";
+import LoginPage from "./Components/LoginPage";
+import HomePage from "./Components/HomePage";
+import AboutPage from "./Components/AboutPage";
+import RegisterPage from "./Components/RegisterPage";
+import { useContext } from "react";
+import { logincontext } from "./ContextFiles/LoginContext";
 function App() {
+
+const{NavActive} = useContext(logincontext);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+
+      <BrowserRouter>
+        {NavActive&&<Navbar/>}
+        
+        <Routes>
+          <Route path="/" element={<LoginPage />} />
+          <Route path="/Home" element={<HomePage />} />
+          <Route path="/About" element={<AboutPage />} />
+          <Route path="/Chatlist" element={<p>Chatlist</p>} />
+          <Route path="/RegisterPage" element={<RegisterPage />} />
+         
+        </Routes>
+      </BrowserRouter>
+
+    </>
+  )
 }
 
-export default App;
+export default App
