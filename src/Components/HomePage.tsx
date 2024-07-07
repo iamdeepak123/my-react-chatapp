@@ -4,8 +4,6 @@ import { addDoc, collection, onSnapshot, orderBy, query, serverTimestamp, where 
 import { auth, db } from "../FirebaseFiles/Firebase";
 
 
-
-
 const HomePage = () => {
 
   const { room, enterRoomBtn, Logoutbtn } = useContext(logincontext);
@@ -17,21 +15,30 @@ const HomePage = () => {
 
   useEffect(() => {
 
-    const Query = query(collection(db, "Messages"), where("room", "==", room),
-      orderBy("createdAt"));
-    onSnapshot(Query, (snap) => {
-      let mess: any = [];
-      snap.forEach((doc) => {
-        mess.push({ ...doc.data(), id: doc.id });
+    if (room) {
+      const Query = query(collection(db, "Messages"), where("room", "==", room),
+        orderBy("createdAt"));
+      var Unsub = onSnapshot(Query, (snap) => {
+        let mess: any = [];
+        snap.forEach((doc) => {
+          mess.push({ ...doc.data(), id: doc.id });
+        });
+        setMessage(mess);
       });
-      setMessage(mess);
-    });
 
 
-  });
+    }
+
+    return () => {
+      if (Unsub)
+        Unsub();
+
+    }
+
+  }, [room]);
 
 
-  const sendMessagebtn = async (e:any) => {
+  const sendMessagebtn = async (e: any) => {
 
     if (newMessage === null) return
 
