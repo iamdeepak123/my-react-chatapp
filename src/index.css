@@ -82,7 +82,8 @@
 .hidemenuIcon {
   display: none;
 }
- @media(max-width: 800px) {
+
+@media(max-width: 800px) {
   .Navbar_container {
     display: flex;
     justify-content: end;
@@ -99,6 +100,7 @@
     width: 50%;
 
   }
+
   .Navbar_Btn_div a button {
     font-size: smaller;
     height: 40%;
@@ -145,7 +147,7 @@
   }
 
   .active .nav_list {
-left: 0%;
+    left: 0%;
   }
 
   .active .menuIcon {
@@ -158,7 +160,7 @@ left: 0%;
 
   }
 
-} 
+}
 
 
 /* ------------------------------login Page CSS Style---------------------------------- */
@@ -207,7 +209,7 @@ left: 0%;
   border: none;
 }
 
-.signup_div button{
+.signup_div button {
   font-size: smaller;
   border: none;
   color: blue;
@@ -271,12 +273,13 @@ left: 0%;
 
 }
 
-@media(max-width: 800px){
+@media(max-width: 800px) {
   .login_container form {
     height: 40%;
     width: 70%;
     font-size: 15px;
   }
+
   .signup_div {
     height: 20%;
     width: 70%;
@@ -288,17 +291,203 @@ left: 0%;
     font-size: small;
 
   }
-  .login_button button {  
+
+  .login_button button {
     font-size: small;
 
   }
 
-  .signup_div button{
+  .signup_div button {
     font-size: 10px;
     border: none;
     color: blue;
     background: transparent;
   }
-  
 
+
+}
+
+
+.home_container {
+  display: flex;
+  width: 100%;
+  background-color: #8EC5FC;
+  background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
+  height: 100vh;
+  justify-content: center;
+  align-items: start;
+  caret-color: transparent;
+}
+
+.chat-dialogue {
+  height: 40%;
+  width: 25%;
+  background-color: #8EC5FC;
+  background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
+  margin-top: 10%;
+  border-radius: 10px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 25px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+
+}
+
+.chat-dialogue input {
+  width: 70%;
+  height: 15%;
+  border-radius: 5px;
+  outline: none;
+  background: transparent;
+  font-size: large;
+  text-align: center;
+  border: 2px solid grey;
+}
+
+
+.chat-dialogue input:focus {
+  caret-color: black;
+}
+
+.chat-dialogue h4 {
+  width: 70%;
+  height: auto;
+  text-align: center;
+}
+
+.chat-dialogue button {
+  width: 40%;
+  height: 14%;
+  text-align: center;
+  border: none;
+  font-size: 18px;
+  background-color: blue;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.chat_room {
+  margin-top: 5%;
+  border-radius: 10px;
+  height: 70%;
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #FFDEE9;
+  background-image: linear-gradient(0deg, #FFDEE9 0%, #B5FFFC 100%);
+}
+
+.chat_messages {
+  height: 80%;
+  width: 100%;
+  margin-top: 20px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.chat_messages p {
+  margin: 15px;
+  min-height: 25px;
+  width: 300px;
+  align-content: center;
+  height: auto;
+  text-align: justify;
+  padding: 6px;
+  border-radius: 15px;
+  background-color: rgb(255, 255, 255)
+}
+
+.chat_btn {
+  height: 12%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.chat_heading {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 10px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid black;
+}
+
+.chat_btn input {
+  width: 80%;
+  height: 100%;
+  outline: none;
+  font-size: large;
+  border: none;
+  background-color: rgb(246, 221, 221);
+  padding-left: 10px;
+}
+
+.chat_btn input:focus {
+  caret-color: black;
+}
+
+.chat_btn button {
+  width: 20%;
+  height: 100%;
+  border: none;
+  background-color: green;
+  color: white;
+  font-size: large;
+  cursor: pointer;
+}
+
+
+@media(max-width: 800px) {
+
+  .chat_room {
+    margin-top: 20%;
+    height: 60%;
+    width: 75%;
+  }
+
+  .chat_messages p {
+    margin: 10px;
+    min-height: 18px;
+    width: 200px;
+    font-size: small;
+  }
+
+  .chat_heading {
+    font-size: 15px;
+
+  }
+
+  .chat_btn input {
+    width: 70%;
+    font-size: 20px;
+  }
+
+  .chat_btn button {
+    width: 30%;
+  }
+
+  .chat-dialogue {
+    height: 30%;
+    width: 70%;
+    margin-top: 30%;
+    font-size: 20px;
+  }
+
+  .chat-dialogue input {
+    font-size: medium;
+  }
+
+  .chat-dialogue button {
+    font-size: 15px;
+  }
 }

@@ -2,12 +2,16 @@ import { Link } from "react-router-dom";
 import { useContext, useState } from "react";
 import { logincontext } from "../ContextFiles/LoginContext";
 import MenuIcon from '@mui/icons-material/Menu';
+import { auth } from "../FirebaseFiles/Firebase";
 import CloseIcon from '@mui/icons-material/Close';
 const Navbar = () => {
   const [value, setValue] = useState(false)
-  const { NavActive, Logoutbtn, email } = useContext(logincontext);
+  const { room, Logoutbtn } = useContext(logincontext);
+
+  
   return (
     <nav>
+      
       <div className={value ? "Navbar_container active" : "Navbar_container"}>
         <div className="nav_list">
 
@@ -27,8 +31,8 @@ const Navbar = () => {
 
         </div>
         <div className="Navbar_Btn_div">
-          <p style={{ color: "white" }}>{email}</p>
-          {NavActive && <Link to="/"> <button onClick={Logoutbtn}>Logout</button> </Link>}
+          <p style={{ color: "white" }}>{auth.currentUser?.email}</p>
+          {room ? <Link to="/"> <button onClick={Logoutbtn}>Logout</button> </Link> : <p></p>}
 
         </div>
       </div>
