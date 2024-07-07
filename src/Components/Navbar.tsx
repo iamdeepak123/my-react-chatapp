@@ -5,10 +5,11 @@ import MenuIcon from '@mui/icons-material/Menu';
 import { auth } from "../FirebaseFiles/Firebase";
 import CloseIcon from '@mui/icons-material/Close';
 const Navbar = () => {
+  
   const [value, setValue] = useState(false)
   const { room, Logoutbtn } = useContext(logincontext);
 
-  
+
   return (
     <nav>
       

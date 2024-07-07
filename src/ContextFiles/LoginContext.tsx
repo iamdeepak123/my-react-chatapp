@@ -1,14 +1,11 @@
-
 import { createContext, useReducer, useState } from "react";
 import { auth, provider, db } from "../FirebaseFiles/Firebase"
 import reducer from "../ReducerFiles/LoginReducer"
 import { signInWithPopup, signInWithEmailAndPassword, signOut } from "firebase/auth";
-import { Firestore, doc, setDoc, addDoc, collection } from "firebase/firestore";
+import { addDoc, collection } from "firebase/firestore";
 import Cookies from "universal-cookie";
 
 const logincontext = createContext<any>("");
-
-
 
 
 const Loginprovider = ({ children }: any) => {
@@ -22,23 +19,17 @@ const Loginprovider = ({ children }: any) => {
 
     })
 
-
-
     const loginWithGoole = () => {
         signInWithPopup(auth, provider).then(async (data) => {
             Cookie.set("auth-token", data.user.refreshToken);
             setIsauth(true);
-
             dispatch({ type: "LOG_IN", payload: data.user });
-
-
             await addDoc(collection(db, "GoogleAccounts"), {
                 Email: data.user.email,
                 Name: data.user.displayName,
             })
         })
     }
-
 
     const enterRoomBtn = (value: any) => {
         setRoom(value);
