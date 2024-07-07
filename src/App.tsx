@@ -8,13 +8,13 @@ import { useContext } from "react";
 import { logincontext } from "./ContextFiles/LoginContext";
 function App() {
 
-const{NavActive} = useContext(logincontext);
+const{room} = useContext(logincontext);
 
   return (
     <>
 
       <BrowserRouter>
-        {NavActive&&<Navbar/>}
+        {room ? <Navbar/> :<p></p> }
         
         <Routes>
           <Route path="/" element={<LoginPage />} />

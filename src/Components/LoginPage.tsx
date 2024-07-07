@@ -9,11 +9,11 @@ import HomePage from "./HomePage"
 
 const LoginPage = () => {
 
-    const { NavActive, loginWithGoole, userdetails, textinput, loginWithemail } = useContext(logincontext);
+    const { isauth, loginWithGoole, userdetails, textinput, loginWithemail } = useContext(logincontext);
 
     return (
         <>
-            {NavActive ? <HomePage />
+            {isauth ? <HomePage />
                 :
                 <div className="login_container">
 
