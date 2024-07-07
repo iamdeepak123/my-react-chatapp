@@ -311,6 +311,8 @@
 .home_container {
   display: flex;
   width: 100%;
+  background-color: #8EC5FC;
+  background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
   height: 100vh;
   justify-content: center;
   align-items: start;
@@ -320,9 +322,11 @@
 .chat-dialogue {
   height: 40%;
   width: 25%;
+  background-color: #8EC5FC;
+  background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
   margin-top: 10%;
   border-radius: 10px;
-  background-color: #F8F8FF;
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -365,20 +369,19 @@
   color: white;
   font-weight: bold;
   cursor: pointer;
-
 }
 
 .chat_room {
   margin-top: 5%;
-  border: 2px solid grey;
+  border-radius: 10px;
   height: 70%;
   width: 30%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-
-
+  background-color: #FFDEE9;
+  background-image: linear-gradient(0deg, #FFDEE9 0%, #B5FFFC 100%);
 }
 
 .chat_messages {
@@ -386,13 +389,19 @@
   width: 100%;
   margin-top: 20px;
   overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 .chat_messages p {
-  margin-left: 10px;
-  margin-top: 15px;
-
-
+  margin: 15px;
+  min-height: 25px;
+  width: 300px;
+  align-content: center;
+  height: auto;
+  text-align: justify;
+  padding: 6px;
+  border-radius: 15px;
+  background-color: rgb(255, 255, 255)
 }
 
 .chat_btn {
@@ -400,8 +409,6 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
-
-
 }
 
 .chat_heading {
@@ -411,6 +418,7 @@
   align-items: center;
   flex-direction: column;
   margin-top: 10px;
+  padding-bottom: 10px;
   border-bottom: 2px solid black;
 }
 
@@ -419,12 +427,9 @@
   height: 100%;
   outline: none;
   font-size: large;
-  color: white;
   border: none;
   background-color: rgb(246, 221, 221);
   padding-left: 10px;
-
-
 }
 
 .chat_btn input:focus {
@@ -439,12 +444,7 @@
   color: white;
   font-size: large;
   cursor: pointer;
-
 }
-
-
-
-
 
 
 @media(max-width: 800px) {
@@ -453,18 +453,27 @@
     margin-top: 20%;
     height: 60%;
     width: 75%;
+  }
+
+  .chat_messages p {
+    margin: 10px;
+    min-height: 18px;
+    width: 200px;
+    font-size: small;
+  }
+
+  .chat_heading {
+    font-size: 15px;
 
   }
 
   .chat_btn input {
     width: 70%;
     font-size: 20px;
-
   }
 
   .chat_btn button {
     width: 30%;
-
   }
 
   .chat-dialogue {
@@ -475,13 +484,10 @@
   }
 
   .chat-dialogue input {
-
     font-size: medium;
-
   }
 
   .chat-dialogue button {
     font-size: 15px;
-
   }
 }

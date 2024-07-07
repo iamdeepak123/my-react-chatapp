@@ -8,7 +8,7 @@ import { auth, db } from "../FirebaseFiles/Firebase";
 
 const HomePage = () => {
 
-  const { room, enterRoomBtn,Logoutbtn } = useContext(logincontext);
+  const { room, enterRoomBtn, Logoutbtn } = useContext(logincontext);
   const roomInputRef = useRef<any>();
 
   const [newMessage, setNewMessage] = useState("");
@@ -31,7 +31,7 @@ const HomePage = () => {
   });
 
 
-  const sendMessagebtn = async (e: any) => {
+  const sendMessagebtn = async (e:any) => {
 
     if (newMessage === null) return
 
@@ -39,7 +39,6 @@ const HomePage = () => {
       text: newMessage,
       createdAt: serverTimestamp(),
       name: auth.currentUser?.displayName,
-      Email: auth.currentUser?.email,
       room,
     })
     setNewMessage("");
@@ -55,9 +54,9 @@ const HomePage = () => {
           room ?
             <div className="chat_room">
               <div className="chat_heading">
-                <h3>Chit-Chat</h3>
+                <h3>Chit-ChatApp</h3>
                 {
-                  <p>Welcome <b>{auth.currentUser?.displayName}! </b></p>
+                  <p>Welcome <b>{auth.currentUser?.displayName} </b></p>
                 }
 
               </div>
@@ -80,7 +79,7 @@ const HomePage = () => {
               <h4>Enter ChatRoom</h4>
               <input type="text" ref={roomInputRef} />
               <button onClick={() => enterRoomBtn(roomInputRef.current.value)}>Enter</button>
-          
+
               <button onClick={Logoutbtn}>Logout</button>
 
             </div>
