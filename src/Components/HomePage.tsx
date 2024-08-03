@@ -13,6 +13,8 @@ const HomePage = () => {
 
   const [message, setMessage] = useState<any>([]);
 
+  var profile:any = auth.currentUser?.photoURL;
+
   useEffect(() => {
 
     if (room) {
@@ -37,7 +39,7 @@ const HomePage = () => {
 
   }, [room]);
 
-
+console.log(auth.currentUser?.photoURL);
   const sendMessagebtn = async (e: any) => {
 
     if (newMessage === null) return
@@ -46,6 +48,7 @@ const HomePage = () => {
       text: newMessage,
       createdAt: serverTimestamp(),
       name: auth.currentUser?.displayName,
+      profile: auth.currentUser?.photoURL,
       room,
     })
     setNewMessage("");
@@ -69,7 +72,7 @@ const HomePage = () => {
               </div>
               <div className="chat_messages">
                 {
-                  message.map((msg: any) => <p key={msg.id}> <b>{msg.name}:</b> {msg.text}</p>
+                  message.map((msg: any) => <p key={msg.id}> <img src={msg.profile} alt="" /><b>  {msg.name}:</b> {msg.text}</p>
                   )
                 }
 
